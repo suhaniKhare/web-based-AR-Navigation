@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SGSITS AR Navigation</title>
+    <!-- Leaflet CSS for 2D Map rendering -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Customized design tokens -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Camera viewport background feed -->
+    <video id="camera-stream" autoplay playsinline muted></video>
+
+    <!-- AR overlay canvas -->
+    <canvas id="ar-canvas"></canvas>
+
+    <!-- Top floating HUD interface -->
+    <div class="hud-container">
+        <div class="header">
+            <select id="destination-selector">
+                <option value="">Select Destination...</option>
+                <!-- Dynamically populated from routeEngine.js campus graph -->
+            </select>
+            <div id="status-panel">GPS WAIT</div>
+        </div>
+
+        <!-- 2D Map pin overlay -->
+        <div id="mini-map"></div>
+    </div>
+
+    <!-- Leaflet JS library -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Modular scripts configuration hierarchy -->
+    <script src="routeEngine.js"></script>
+    <script src="speech.js"></script>
+    <script src="location.js"></script>
+    <script src="orientation.js"></script>
+    <script src="navigation.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
