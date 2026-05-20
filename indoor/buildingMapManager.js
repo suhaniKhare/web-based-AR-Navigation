@@ -36,12 +36,15 @@ class BuildingMapManager {
                 "hasIndoor": true,
                 "primaryOptions": [
                     { "id": "HOD_OFFICE", "label": "HOD Office", "type": "route" },
+                    { "id": "DEAN_OFFICE", "label": "Dean's Office", "type": "route" },
                     { "id": "LABS", "label": "Labs", "type": "submenu" }
                 ],
                 "labs": [
-                    { "id": "LAB_101", "label": "Lab 101" },
-                    { "id": "LAB_102", "label": "Lab 102" },
-                    { "id": "AIML_LAB", "label": "AI/ML Research Lab" }
+                    { "id": "LAB_111", "label": "Lab 111 (Wireless Network Lab)" },
+                    { "id": "LAB_101", "label": "Lab 101 (DBMS)" },
+                    { "id": "LAB_107", "label": "Lab 107 (English Lab)" },
+                    { "id": "LAB_105", "label": "Lab 105" },
+                    { "id": "LAB_104", "label": "Lab 104" }
                 ]
             },
             "GG": {
@@ -57,16 +60,50 @@ class BuildingMapManager {
                 "HOD_OFFICE": {
                     "name": "HOD Office",
                     "steps": [
-                        { "step": 1, "instruction": "Enter the main lobby of the ATC Building and walk straight past the reception desk.", "distance": 10 },
-                        { "step": 2, "instruction": "Turn left and go up the main staircase to the 1st Floor.", "distance": 12 },
-                        { "step": 3, "instruction": "The HOD Office is the second room on your left.", "distance": 5 }
+                        { "step": 1, "instruction": "Face the stairs" },
+                        { "step": 2, "instruction": "Turn left then go straight" }
+                    ]
+                },
+                "DEAN_OFFICE": {
+                    "name": "Dean's Office",
+                    "steps": [
+                        { "step": 1, "instruction": "Face the stairs" },
+                        { "step": 2, "instruction": "Turn right then go straight" }
+                    ]
+                },
+                "LAB_111": {
+                    "name": "Lab 111 (Wireless Network Lab)",
+                    "steps": [
+                        { "step": 1, "instruction": "Face the stairs" },
+                        { "step": 2, "instruction": "Turn left and go straight to the end" }
                     ]
                 },
                 "LAB_101": {
-                    "name": "Lab 101",
+                    "name": "Lab 101 (DBMS)",
                     "steps": [
-                        { "step": 1, "instruction": "Enter the lobby, walk past reception, and walk 12 meters down the east hallway.", "distance": 12 },
-                        { "step": 2, "instruction": "Lab 101 is straight ahead at the end of the hall.", "distance": 6 }
+                        { "step": 1, "instruction": "Face the stairs" },
+                        { "step": 2, "instruction": "Turn left and go straight to the end" }
+                    ]
+                },
+                "LAB_107": {
+                    "name": "Lab 107 (English Lab)",
+                    "steps": [
+                        { "step": 1, "instruction": "Face the stairs" },
+                        { "step": 2, "instruction": "Turn right and go straight to the end" }
+                    ]
+                },
+                "LAB_105": {
+                    "name": "Lab 105",
+                    "steps": [
+                        { "step": 1, "instruction": "Face the stairs" },
+                        { "step": 2, "instruction": "Turn right and go straight to the end" }
+                    ]
+                },
+                "LAB_104": {
+                    "name": "Lab 104",
+                    "steps": [
+                        { "step": 1, "instruction": "Face the stairs" },
+                        { "step": 2, "instruction": "Turn right and go straight to the end" }
                     ]
                 }
             }
