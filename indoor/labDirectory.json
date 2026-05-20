@@ -1,0 +1,23 @@
+{
+  "ATC": {
+    "hasIndoor": true,
+    "primaryOptions": [
+      { "id": "HOD_OFFICE", "label": "HOD Office", "type": "route" },
+      { "id": "LABS", "label": "Labs", "type": "submenu" }
+    ],
+    "labs": [
+      { "id": "LAB_101", "label": "Lab 101" },
+      { "id": "LAB_102", "label": "Lab 102" },
+      { "id": "AIML_LAB", "label": "AI/ML Research Lab" },
+      { "id": "NETWORKING_LAB", "label": "Networking Lab" },
+      { "id": "DATABASE_LAB", "label": "Database Lab" }
+    ]
+  },
+  "GG": {
+    "hasIndoor": true,
+    "primaryOptions": [
+      { "id": "HOD_OFFICE", "label": "Administrative Office", "type": "route" }
+    ],
+    "labs": []
+  }
+}
