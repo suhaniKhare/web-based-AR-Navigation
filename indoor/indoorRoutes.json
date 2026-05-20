@@ -1,66 +1,52 @@
 {
   "ATC": {
     "HOD_OFFICE": {
-      "name": "HOD Office (CS/IT)",
+      "name": "HOD Office",
       "steps": [
-        { "step": 1, "instruction": "Enter the main lobby of the ATC Building and walk straight past the reception desk.", "distance": 10 },
-        { "step": 2, "instruction": "Turn left at the elevator bank and locate Staircase A.", "distance": 15 },
-        { "step": 3, "instruction": "Go up the stairs to the 1st Floor.", "distance": 12, "floorChange": "up" },
-        { "step": 4, "instruction": "Turn right exiting the staircase corridor and walk down the main hall.", "distance": 8 },
-        { "step": 5, "instruction": "The HOD Office (Room 105) is the second door on your left.", "distance": 5 }
+        { "step": 1, "instruction": "Face the stairs" },
+        { "step": 2, "instruction": "Turn left then go straight" }
+      ]
+    },
+    "DEAN_OFFICE": {
+      "name": "Dean's Office",
+      "steps": [
+        { "step": 1, "instruction": "Face the stairs" },
+        { "step": 2, "instruction": "Turn right then go straight" }
+      ]
+    },
+    "LAB_111": {
+      "name": "Lab 111 (Wireless Network Lab)",
+      "steps": [
+        { "step": 1, "instruction": "Face the stairs" },
+        { "step": 2, "instruction": "Turn left and go straight to the end" }
       ]
     },
     "LAB_101": {
-      "name": "Lab 101 (Software Lab)",
+      "name": "Lab 101 (DBMS)",
       "steps": [
-        { "step": 1, "instruction": "Enter the lobby, walk straight past reception, and turn right toward the east wing.", "distance": 12 },
-        { "step": 2, "instruction": "Go straight down the corridor past the seminar room.", "distance": 20 },
-        { "step": 3, "instruction": "Lab 101 is located directly at the end of the corridor on your right.", "distance": 6 }
+        { "step": 1, "instruction": "Face the stairs" },
+        { "step": 2, "instruction": "Turn left and go straight to the end" }
       ]
     },
-    "LAB_102": {
-      "name": "Lab 102 (Hardware Lab)",
+    "LAB_107": {
+      "name": "Lab 107 (English Lab)",
       "steps": [
-        { "step": 1, "instruction": "Enter the lobby and walk straight past the reception desk.", "distance": 10 },
-        { "step": 2, "instruction": "Take the main elevator or stairs on your left up to the 1st Floor.", "distance": 12, "floorChange": "up" },
-        { "step": 3, "instruction": "Turn left when exiting the elevator corridor.", "distance": 7 },
-        { "step": 4, "instruction": "Lab 102 is the third room on your right, next to the faculty lounge.", "distance": 14 }
+        { "step": 1, "instruction": "Face the stairs" },
+        { "step": 2, "instruction": "Turn right and go straight to the end" }
       ]
     },
-    "AIML_LAB": {
-      "name": "AI/ML Research Lab",
+    "LAB_105": {
+      "name": "Lab 105",
       "steps": [
-        { "step": 1, "instruction": "Enter the building lobby and turn right toward the elevators.", "distance": 8 },
-        { "step": 2, "instruction": "Take the elevator to the 2nd Floor.", "distance": 15, "floorChange": "up" },
-        { "step": 3, "instruction": "Turn left out of the elevator and walk down the corridor.", "distance": 12 },
-        { "step": 4, "instruction": "The AI/ML Lab (Room 204) is located on your right hand side.", "distance": 8 }
+        { "step": 1, "instruction": "Face the stairs" },
+        { "step": 2, "instruction": "Turn right and go straight to the end" }
       ]
     },
-    "NETWORKING_LAB": {
-      "name": "Networking Lab",
+    "LAB_104": {
+      "name": "Lab 104",
       "steps": [
-        { "step": 1, "instruction": "Enter the building lobby and go up the main staircase on the left to the 1st Floor.", "distance": 15, "floorChange": "up" },
-        { "step": 2, "instruction": "Walk straight into the west corridor.", "distance": 10 },
-        { "step": 3, "instruction": "The Networking Lab (Room 112) is the last door at the end of the hallway.", "distance": 18 }
-      ]
-    },
-    "DATABASE_LAB": {
-      "name": "Database Lab",
-      "steps": [
-        { "step": 1, "instruction": "Enter the ATC building lobby and walk straight.", "distance": 10 },
-        { "step": 2, "instruction": "Take the stairs on your left to the 1st Floor.", "distance": 12, "floorChange": "up" },
-        { "step": 3, "instruction": "Turn right out of the staircase and walk past Room 102.", "distance": 15 },
-        { "step": 4, "instruction": "The Database Lab (Room 106) is straight ahead.", "distance": 8 }
-      ]
-    }
-  },
-  "GG": {
-    "HOD_OFFICE": {
-      "name": "Administrative Office",
-      "steps": [
-        { "step": 1, "instruction": "Enter through the Golden Gate main arches and walk straight into the central courtyard.", "distance": 15 },
-        { "step": 2, "instruction": "Turn right at the statue and walk toward the admin wing entrance.", "distance": 10 },
-        { "step": 3, "instruction": "The Admin / HOD office is the first door on your left.", "distance": 5 }
+        { "step": 1, "instruction": "Face the stairs" },
+        { "step": 2, "instruction": "Turn right and go straight to the end" }
       ]
     }
   }

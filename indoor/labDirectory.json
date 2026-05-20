@@ -3,21 +3,15 @@
     "hasIndoor": true,
     "primaryOptions": [
       { "id": "HOD_OFFICE", "label": "HOD Office", "type": "route" },
+      { "id": "DEAN_OFFICE", "label": "Dean's Office", "type": "route" },
       { "id": "LABS", "label": "Labs", "type": "submenu" }
     ],
     "labs": [
-      { "id": "LAB_101", "label": "Lab 101" },
-      { "id": "LAB_102", "label": "Lab 102" },
-      { "id": "AIML_LAB", "label": "AI/ML Research Lab" },
-      { "id": "NETWORKING_LAB", "label": "Networking Lab" },
-      { "id": "DATABASE_LAB", "label": "Database Lab" }
+      { "id": "LAB_111", "label": "Lab 111 (Wireless Network Lab)" },
+      { "id": "LAB_101", "label": "Lab 101 (DBMS)" },
+      { "id": "LAB_107", "label": "Lab 107 (English Lab)" },
+      { "id": "LAB_105", "label": "Lab 105" },
+      { "id": "LAB_104", "label": "Lab 104" }
     ]
-  },
-  "GG": {
-    "hasIndoor": true,
-    "primaryOptions": [
-      { "id": "HOD_OFFICE", "label": "Administrative Office", "type": "route" }
-    ],
-    "labs": []
   }
 }
