@@ -2,7 +2,7 @@
   "ATC": {
     "hasIndoor": true,
     "primaryOptions": [
-      { "id": "HOD_OFFICE", "label": "HOD Office", "type": "route" },
+      { "id": "HOD_OFFICE", "label": "K.K. Sharma (IT HOD)", "type": "route" },
       { "id": "DEAN_OFFICE", "label": "Dean's Office", "type": "route" },
       { "id": "LABS", "label": "Labs", "type": "submenu" }
     ],
@@ -12,6 +12,14 @@
       { "id": "LAB_107", "label": "Lab 107 (English Lab)" },
       { "id": "LAB_105", "label": "Lab 105" },
       { "id": "LAB_104", "label": "Lab 104" }
+    ]
+  },
+  "CS":{
+    "hasIndoor": true,
+    "primaryOptions": [
+      { "id": "HOD_OFFICE", "label": "HOD Office", "type": "route" },
+      { "id": "DEAN_OFFICE", "label": "Dean's Office", "type": "route" },
+      { "id": "LABS", "label": "Labs", "type": "submenu" }
     ]
   }
 }
