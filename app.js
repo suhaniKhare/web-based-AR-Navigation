@@ -33,6 +33,12 @@ window.addEventListener('DOMContentLoaded', () => {
     setupDestinationList();
     initLeafletMap();
 
+    window.addEventListener('resize', () => {
+        if (mapObject) {
+            mapObject.invalidateSize();
+        }
+    });
+
     // Show landing overlay to comply with browser gesture requirements for Camera & Sensors
     setupPermissionOverlay();
 });
@@ -329,9 +335,10 @@ function renderLoop() {
 // 10. Draw custom 3D-styled direction arrows
 function drawAROverlay() {
     // Sync canvas sizing with mobile viewport layout
-    if (canvasElement.width !== window.innerWidth || canvasElement.height !== window.innerHeight) {
+    const targetHeight = window.innerHeight * 0.5;
+    if (canvasElement.width !== window.innerWidth || canvasElement.height !== targetHeight) {
         canvasElement.width = window.innerWidth;
-        canvasElement.height = window.innerHeight;
+        canvasElement.height = targetHeight;
     }
 
     canvasContext.clearRect(0, 0, canvasElement.width, canvasElement.height);
