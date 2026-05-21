@@ -62,8 +62,8 @@ class IndoorNavigator {
             statusPanel.style.borderColor = 'rgba(16, 185, 129, 0.3)';
         }
 
-        // Restart GPS tracking for outdoor mode
-        if (window.locationTracker && window.handleLocationUpdate && window.handleLocationError) {
+        // Resume high-accuracy GPS tracking for outdoor map awareness
+        if (window.locationTracker && window.handleLocationUpdate) {
             window.locationTracker.startTracking(window.handleLocationUpdate, window.handleLocationError);
         }
 
