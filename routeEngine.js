@@ -165,9 +165,9 @@ function initCampusGraphData() {
 
     // --- Building nodes ---
     campusGraph.addNode(new CampusNode("GG", "Golden Gate", 22.726284186170997, 75.87414814535562));
-    campusGraph.addNode(new CampusNode("ATC", "Department of Information Techonology (ATC)", 22.72600, 75.87323));
+    campusGraph.addNode(new CampusNode("ATC", "Department of Information Techonology (ATC)", 22.72581494817771, 75.87327915844558));
     campusGraph.addNode(new CampusNode("LT", "LT Building", 22.72591, 75.87364));
-    campusGraph.addNode(new CampusNode("IP", "Department of IP", 22.72591, 75.87364));
+    campusGraph.addNode(new CampusNode("IP", "Department of IP", 22.725512545480214, 75.87273457910088));
 
     campusGraph.addNode(new CampusNode("HOSTEL_PLAY_GROUND", "Hostel Play Ground", 22.726225464476244, 75.87280022519063));
     campusGraph.addNode(new CampusNode("MV_HOSTEL", "MV Boys Hostel", 22.72677316459135, 75.87212806086463));
@@ -206,10 +206,11 @@ function initCampusGraphData() {
     campusGraph.addEdge("A", "B", 1);
     campusGraph.addEdge("A", "C", 1);
     campusGraph.addEdge("C", "D", 1);
+    campusGraph.addEdge("C", "K", 1);
     campusGraph.addEdge("D", "E", 1);
     campusGraph.addEdge("E", "F", 1);
     // campusGraph.addEdge("D", "Z", 1);
-    
+
     campusGraph.addEdge("PP", "Z", 1);
     campusGraph.addEdge("G", "Z", 1);
     campusGraph.addEdge("G", "Y", 1);
@@ -255,6 +256,7 @@ function initCampusGraphData() {
     campusGraph.addEdge("H", "CS", 1);
     campusGraph.addEdge("H", "DEPT_APPLIED_PHYSICS", 1);
     campusGraph.addEdge("PP", "EC", 1);
+    campusGraph.addEdge("PP", "IP", 1);
     campusGraph.addEdge("PP", "BM", 1);
     campusGraph.addEdge("X", "GOLDEN_JUBILEE_AUDITORIUM", 1);
     campusGraph.addEdge("X", "MECHANICAL", 1);
@@ -264,7 +266,7 @@ function initCampusGraphData() {
     campusGraph.addEdge("T", "SAC_GROUND", 1);
     campusGraph.addEdge("T", "PHARMACY", 1);
     campusGraph.addEdge("V", "DEPT_APPLIED_CHEMISTRY", 1);
-    campusGraph.addEdge("S", "CIDI_LAB", 1);
+    campusGraph.addEdge("T", "CIDI_LAB", 1);
     campusGraph.addEdge("R", "CENTRAL_LIBRARY", 1);
     campusGraph.addEdge("R", "WORKSHOP", 1);
     campusGraph.addEdge("Q", "SILVERIA_HALL", 1);
