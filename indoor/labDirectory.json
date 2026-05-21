@@ -17,9 +17,69 @@
   "CS":{
     "hasIndoor": true,
     "primaryOptions": [
-      { "id": "HOD_OFFICE", "label": "HOD Office", "type": "route" },
-      { "id": "DEAN_OFFICE", "label": "Dean's Office", "type": "route" },
-      { "id": "LABS", "label": "Labs", "type": "submenu" }
+      { "id": "HOD_OFFICE", "label": "Prof. Urjita Thakar (HOD)", "type": "route" },
+      { "id": "LABS", "label": "Labs", "type": "route" }
+    ]
+  },
+
+   "DEPT_APPLIED_PHYSICS": {
+    "hasIndoor": true,
+    "primaryOptions": [
+      { "id": "HOD_OFFICE", "label": "Prof. J.T. Andrews", "type": "route" },
+      { "id": "LABS", "label": "Labs", "type": "route" }
+    ]
+  },
+
+  "BM":{
+    "hasIndoor": true,
+    "primaryOptions": [
+      { "id": "HOD_OFFICE", "label": "Prof. P.P. Bansod", "type": "route" }
+    ]
+  },
+
+  "Mechanical":{
+    "hasIndoor": true,
+    "primaryOptions": [
+      { "id": "HOD_OFFICE", "label": "Prof. B.R. Rawal", "type": "route" }
+    ]
+  },
+
+  "GOLDEN_JUBILEE_AUDITORIUM":{
+    "hasIndoor": true,
+    "primaryOptions": [
+      { "id": "MAIN_BUILDING", "label": "Golden Jubilee Auditorium", "type": "route" }
+    ]
+  },
+
+  "EL":{
+    "hasIndoor": true,
+    "primaryOptions": [
+      { "id": "HOD_OFFICE", "label": "Prof. B.R. Rawal", "type": "route" },
+      { "id": "LABS", "label": "Labs", "type": "route" }
+    ]
+  },
+
+  "Civil":{
+    "hasIndoor": true,
+    "primaryOptions": [
+      { "id": "HOD_OFFICE", "label": "Prof. H.K. Verma", "type": "route" },
+      { "id": "LABS", "label": "Civil Labs", "type": "route" }
+    ]
+  },
+
+  "DEPT_APPLIED_CHEMISTRY":{
+    "hasIndoor": true,
+    "primaryOptions": [
+      { "id": "HOD_OFFICE", "label": "HOD", "type": "route" },
+      { "id": "LABS", "label": "Chemsitry Lab", "type": "route" }
+    ]
+  },
+
+  "EC":{
+    "hasIndoor": true,
+    "primaryOptions": [
+      { "id": "HOD_OFFICE", "label": "Prof. S.K. Jain", "type": "route" },
+      { "id": "LABS", "label": "Labs", "type": "route" }
     ]
   }
 }
