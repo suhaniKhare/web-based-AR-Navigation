@@ -7,11 +7,11 @@
       { "id": "LABS", "label": "Labs", "type": "submenu" }
     ],
     "labs": [
-      { "id": "LAB_111", "label": "Lab 111 (Wireless Network Lab)" },
-      { "id": "LAB_101", "label": "Lab 101 (DBMS)" },
-      { "id": "LAB_107", "label": "Lab 107 (English Lab)" },
-      { "id": "LAB_105", "label": "Lab 105" },
-      { "id": "LAB_104", "label": "Lab 104" }
+      { "id": "LAB_101", "label": "ATC LAB 101 — DBMS Lab" },
+      { "id": "LAB_111", "label": "ATC LAB 111 — Wireless Network Lab" },
+      { "id": "LAB_107", "label": "ATC LAB 107 — English Lab" },
+      { "id": "LAB_105", "label": "ATC LAB 105" },
+      { "id": "LAB_104", "label": "ATC LAB 104" }
     ]
   },
   "CS":{
