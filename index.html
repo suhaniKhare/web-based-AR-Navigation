@@ -34,11 +34,36 @@
     </div>
     <!-- Camera viewport background feed -->
     <video id="camera-stream" autoplay playsinline muted></video>
+
+    <!-- AR overlay canvas -->
+    <canvas id="ar-canvas"></canvas>
+
+    <!-- Top floating HUD interface -->
+    <div class="hud-container">
+        <div class="header">
+            <select id="destination-selector">
+                <option value="">Select Destination...</option>
+                <!-- Dynamically populated from routeEngine.js campus graph -->
+            </select>
+            <div id="status-panel">GPS WAIT</div>
+        </div>
+
+        <!-- 2D Map pin overlay -->
+        <div id="mini-map"></div>
+    </div>
+
+    <!-- Leaflet JS library -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Modular scripts configuration hierarchy -->
+    <script src="routeEngine.js"></script>
+    <script src="speech.js"></script>
     <script src="location.js"></script>
     <script src="orientation.js"></script>
     <script src="navigation.js"></script>
     <script src="ui.js"></script>
     <script src="app.js"></script>
+
     <!-- Indoor navigation logic integration -->
     <script src="indoor/buildingMapManager.js"></script>
     <script src="indoor/floorNavigation.js"></script>
@@ -46,13 +71,14 @@
     <script src="indoor/indoorNavigator.js"></script>
     <script src="indoor/labMenu.js"></script>
     <script src="indoor/destinationMenu.js"></script>
+
     <!-- Indoor Navigation System -->
-    <script src="indoor/buildingMapManager.js"></script>
-    <script src="indoor/labMenu.js"></script>
-    <script src="indoor/destinationMenu.js"></script>
-    <script src="indoor/floorNavigation.js"></script>
-    <script src="indoor/indoorTextGuide.js"></script>
-    <script src="indoor/indoorNavigator.js"></script>
-    <script src="indoor/transitionController.js"></script>
+    <!-- <script src="indoor/buildingMapManager.js"></script> -->
+    <!-- <script src="indoor/labMenu.js"></script> -->
+    <!-- <script src="indoor/destinationMenu.js"></script> -->
+    <!-- <script src="indoor/floorNavigation.js"></script> -->
+    <!-- <script src="indoor/indoorTextGuide.js"></script> -->
+    <!-- <script src="indoor/indoorNavigator.js"></script> -->
+    <!-- <script src="indoor/transitionController.js"></script> -->
 </body>
 </html>

@@ -276,3 +276,128 @@
         font-size: 19px;
     }
 }
+
+/* ==========================================================================
+   Navigation HUD, Select, GPS, Map & AR Canvas Layout Styles
+   ========================================================================== */
+
+/* Layer 2: 3D overlays canvas */
+#ar-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 50vh;
+    z-index: 2;
+    pointer-events: none; /* Passes touch clicks through to underlying map */
+}
+
+/* Layer 3: HUD Overlay */
+.hud-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none; /* Allows canvas clicks to reach map */
+}
+
+/* Glassmorphic Top Header */
+.header {
+    margin: 15px;
+    padding: 12px 18px;
+    background: rgba(15, 23, 42, 0.75); /* Slate 900 tint */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    pointer-events: auto; /* Active clicking */
+}
+
+/* Custom Dropdown Styling */
+select {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 65%;
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.3s;
+}
+
+select:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #10b981; /* Focus accent color */
+}
+
+select option {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+/* GPS Status Indicator */
+#status-panel {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #10b981; /* Emerald Green */
+    padding: 6px 12px;
+    background: rgba(16, 185, 129, 0.15);
+    border-radius: 8px;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    text-transform: uppercase;
+}
+
+/* Floating Circular 2D Map */
+#mini-map {
+    width: 100vw;
+    height: 50vh;
+    border-top: 3px solid rgba(255, 255, 255, 0.25);
+    margin: 0;
+    align-self: auto;
+    pointer-events: auto; /* Active panning */
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Leaflet User Marker Pulsing Effect */
+.user-location-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-location-marker::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border: 2px solid #3b82f6;
+    border-radius: 50%;
+    animation: marker-pulse 1.8s infinite ease-out;
+    opacity: 0;
+}
+
+@keyframes marker-pulse {
+    0% {
+        transform: scale(0.4);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}

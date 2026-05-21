@@ -51,14 +51,14 @@ function setupPermissionOverlay() {
     if (!overlay || !startBtn) return;
 
     startBtn.addEventListener('click', async () => {
-        // Activate Camera
-        const cameraStarted = await initCamera();
-        
-        // Request orientation sensors (crucial for iOS permission popup)
+        // Request orientation sensors first to preserve iOS user gesture context
         const compassStarted = await window.orientationTracker.startTracking((heading) => {
             currentAzimuth = heading;
             drawAROverlay();
         });
+
+        // Activate Camera second
+        const cameraStarted = await initCamera();
 
         if (cameraStarted) {
             // Activate GPS Geolocation
@@ -101,7 +101,7 @@ function setupPermissionOverlay() {
                 }
             }
         }
-    });
+    }, true); // Use capture phase so this event listener executes before ui.js disables the button!
 }
 
 // 2. WebRTC Camera Initialization

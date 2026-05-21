@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add premium click effect and loading state feedback
         startBtn.addEventListener('click', () => {
             startBtn.classList.add('loading');
-            startBtn.disabled = true;
+            // startBtn.disabled = true;
             startBtn.innerHTML = `
                 <span class="spinner"></span> Calibrating Sensors...
             `;
