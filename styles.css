@@ -1,149 +1,278 @@
-/**
- * styles.css
- * Styled design system for the WebAR Navigation client layout.
- */
+/* SGSITS Premium Glass Landing Page */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
-
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: #000000;
-    color: #ffffff;
-}
-
-/* Layer 1: WebRTC Background Feed */
-#camera-stream {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 50vh;
-    object-fit: cover;
-    z-index: 1;
-}
-
-/* Layer 2: 3D overlays canvas */
-#ar-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 50vh;
-    z-index: 2;
-    pointer-events: none; /* Passes touch clicks through to underlying map */
-}
-
-/* Layer 3: HUD Overlay */
-.hud-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    pointer-events: none; /* Allows canvas clicks to reach map */
-}
-
-/* Glassmorphic Top Header */
-.header {
-    margin: 15px;
-    padding: 12px 18px;
-    background: rgba(15, 23, 42, 0.75); /* Slate 900 tint */
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-    pointer-events: auto; /* Active clicking */
-}
-
-/* Custom Dropdown Styling */
-select {
-    background: rgba(255, 255, 255, 0.08);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-    padding: 8px 14px;
-    font-size: 14px;
-    font-weight: 600;
-    width: 65%;
-    outline: none;
-    cursor: pointer;
-    font-family: inherit;
-    transition: background 0.3s;
-}
-
-select:focus {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: #10b981; /* Focus accent color */
-}
-
-select option {
-    background: #0f172a;
-    color: #ffffff;
-}
-
-/* GPS Status Indicator */
-#status-panel {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: #10b981; /* Emerald Green */
-    padding: 6px 12px;
-    background: rgba(16, 185, 129, 0.15);
-    border-radius: 8px;
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    text-transform: uppercase;
-}
-
-/* Floating Circular 2D Map */
-#mini-map {
-    width: 100vw;
-    height: 50vh;
-    border-top: 3px solid rgba(255, 255, 255, 0.25);
-    margin: 0;
-    align-self: auto;
-    pointer-events: auto; /* Active panning */
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-}
-
-/* Leaflet User Marker Pulsing Effect */
-.user-location-marker {
+#landing-page {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    font-family: Georgia, 'Times New Roman', serif;
 }
 
-.user-location-marker::after {
-    content: '';
+/* #landing-page .bg {
     position: absolute;
-    width: 26px;
-    height: 26px;
-    border: 2px solid #3b82f6;
-    border-radius: 50%;
-    animation: marker-pulse 1.8s infinite ease-out;
-    opacity: 0;
+    inset: 0;
+    background-image: url("campus_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px) brightness(0.48);
+    transform: scale(1.08);
+    z-index: -3;
 }
 
-@keyframes marker-pulse {
-    0% {
-        transform: scale(0.4);
-        opacity: 0.8;
+#landing-page .bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: -2;
+}
+
+#landing-page .glass-card {
+    width: 68%;
+    max-width: 550px;
+    min-height: 520px;
+    padding: 38px 42px 36px;
+    border-radius: 18px;
+    text-align: center;
+
+    background: rgba(35, 42, 48, 0.58);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.48),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+} */
+
+#landing-page .bg {
+    position: absolute;
+    inset: 0;
+
+    background-image: url("campus_bg.jpg");
+    background-size: cover;
+
+    /* shift image downward */
+    background-position: center 18%;
+
+    /* lighter blur */
+    filter: blur(3px) brightness(0.62);
+
+    transform: scale(1.04);
+
+    z-index: -3;
+}
+
+#landing-page .bg-overlay {
+    position: absolute;
+    inset: 0;
+
+    /* lighter overlay */
+    background: rgba(0, 0, 0, 0.18);
+
+    z-index: -2;
+}
+
+#landing-page .glass-card {
+    width: 68%;
+    max-width: 550px;
+    min-height: 520px;
+
+    padding: 38px 42px 36px;
+
+    border-radius: 22px;
+
+    text-align: center;
+
+    /* cleaner glass */
+    background: rgba(30, 38, 46, 0.42);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+#landing-page .logo {
+    width: 118px;
+    height: 118px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #e0bf28;
+    box-shadow:
+        0 0 0 4px rgba(255, 255, 255, 0.75),
+        0 0 20px rgba(255, 221, 50, 0.45);
+    margin-bottom: 18px;
+}
+
+#landing-page .divider {
+    width: 58px;
+    height: 1px;
+    margin: 0 auto 18px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        #d6b421,
+        transparent
+    );
+}
+
+#landing-page .title {
+    color: #ffe417;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 14px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#landing-page .subtitle {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+#landing-page .main-title {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+    text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.85);
+}
+
+#landing-page .by {
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    margin-bottom: 4px;
+}
+
+#landing-page .dept {
+    color: #b8e6ff;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.75);
+}
+
+#landing-page .credits {
+    width: 86%;
+    margin: 0 auto 26px;
+    padding: 14px 18px;
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+#landing-page .credits-by {
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+#landing-page .names {
+    color: #ffe417;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.85);
+}
+
+#landing-page .names span {
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0 10px;
+}
+
+#landing-page .btn {
+    width: 288px;
+    height: 52px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: #ffffff;
+
+    background: linear-gradient(135deg, #18c987, #0aa96f);
+
+    box-shadow:
+        0 12px 25px rgba(0, 180, 115, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+    transition: 0.25s ease;
+}
+
+#landing-page .btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #1fd894, #0bb878);
+}
+
+#camera-stream {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -10;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #landing-page .glass-card {
+        width: 82%;
+        min-height: auto;
+        padding: 34px 24px 32px;
     }
-    100% {
-        transform: scale(1.6);
-        opacity: 0;
+
+    #landing-page .logo {
+        width: 95px;
+        height: 95px;
+    }
+
+    #landing-page .title {
+        font-size: 16px;
+    }
+
+    #landing-page .subtitle {
+        font-size: 20px;
+    }
+
+    #landing-page .main-title {
+        font-size: 27px;
+    }
+
+    #landing-page .dept {
+        font-size: 15px;
+    }
+
+    #landing-page .names {
+        font-size: 14px;
+    }
+
+    #landing-page .btn {
+        width: 240px;
+        height: 50px;
+        font-size: 19px;
     }
 }

@@ -45,43 +45,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // 1. Splash Page Consent Handler (required for WebRTC camera & iOS sensors)
 function setupPermissionOverlay() {
-    const overlay = document.createElement('div');
-    overlay.id = 'permission-overlay';
-    overlay.style.position = 'fixed';
-    overlay.style.top = '0';
-    overlay.style.left = '0';
-    overlay.style.width = '100%';
-    overlay.style.height = '100%';
-    overlay.style.background = 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)';
-    overlay.style.color = '#f8fafc';
-    overlay.style.display = 'flex';
-    overlay.style.flexDirection = 'column';
-    overlay.style.alignItems = 'center';
-    overlay.style.justifyContent = 'center';
-    overlay.style.zIndex = '999';
-    overlay.style.fontFamily = 'system-ui, sans-serif';
-    overlay.style.padding = '20px';
-    overlay.style.textAlign = 'center';
+    const overlay = document.getElementById('landing-page');
+    const startBtn = document.getElementById('start-ar-btn');
 
-    overlay.innerHTML = `
-        <div style="font-size: 60px; margin-bottom: 20px;">📍</div>
-        <h2 style="font-weight: 700; margin: 0 0 10px 0;">SGSITS AR Navigation</h2>
-        <p style="font-size: 14px; opacity: 0.8; max-width: 300px; line-height: 1.5; margin-bottom: 30px;">
-            This web application requires camera access to overlay navigation arrows, GPS coordinates, and compass sensors to orient directions.
-        </p>
-        <button id="start-ar-btn" style="
-            background: #10b981; color: white; border: none; padding: 14px 28px;
-            font-size: 16px; font-weight: 600; border-radius: 999px; cursor: pointer;
-            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.4);
-            transition: transform 0.2s ease;
-        ">Start Navigation</button>
-    `;
+    if (!overlay || !startBtn) return;
 
-    document.body.appendChild(overlay);
-
-    document.getElementById('start-ar-btn').addEventListener('click', async () => {
-        overlay.innerHTML = `<p style="font-size: 16px;">Calibrating Sensors & Camera...</p>`;
-        
+    startBtn.addEventListener('click', async () => {
         // Activate Camera
         const cameraStarted = await initCamera();
         
@@ -95,16 +64,42 @@ function setupPermissionOverlay() {
             // Activate GPS Geolocation
             window.locationTracker.startTracking(handleLocationUpdate, handleLocationError);
             
-            // Remove landing splash overlay
-            document.body.removeChild(overlay);
+            // Add CSS class to fade out the landing overlay smoothly
+            overlay.classList.add('fade-out');
+            
+            // Remove the landing splash overlay from DOM after the transition completes
+            setTimeout(() => {
+                if (overlay.parentNode) {
+                    overlay.parentNode.removeChild(overlay);
+                }
+            }, 800); // Matches the 0.8s transition duration defined in CSS
             
             // Kick off Canvas drawing render loop
             requestAnimationFrame(renderLoop);
         } else {
-            overlay.innerHTML = `
-                <p style="color: #ef4444; font-weight: 600;">Camera access is mandatory for AR view.</p>
-                <button onclick="location.reload()" style="margin-top:15px; padding: 10px 20px; border-radius: 5px;">Retry</button>
-            `;
+            // Re-enable and show error state on the button
+            startBtn.disabled = false;
+            startBtn.classList.remove('loading');
+            startBtn.innerHTML = 'Camera access is required. Retry';
+            startBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+            
+            // Render detailed guidance text if camera is blocked
+            let errMsg = overlay.querySelector('.camera-error-msg');
+            if (!errMsg) {
+                errMsg = document.createElement('p');
+                errMsg.className = 'camera-error-msg';
+                errMsg.style.color = '#f87171';
+                errMsg.style.fontSize = '12px';
+                errMsg.style.marginTop = '15px';
+                errMsg.style.fontWeight = '600';
+                errMsg.style.lineHeight = '1.5';
+                errMsg.innerText = 'Please enable camera access in browser permissions and reload the page.';
+                
+                const card = overlay.querySelector('.glass-card');
+                if (card) {
+                    card.appendChild(errMsg);
+                }
+            }
         }
     });
 }
