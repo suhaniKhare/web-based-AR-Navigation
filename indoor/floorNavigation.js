@@ -27,8 +27,9 @@ class FloorNavigationManager {
         const statusPanel = document.getElementById('status-panel');
         if (statusPanel) {
             statusPanel.innerText = `LEVEL: ${this.currentFloor.toUpperCase()}`;
-            statusPanel.style.background = '#2563eb'; // Blue theme for indoor
-            statusPanel.style.borderColor = '#3b82f6';
+            statusPanel.style.background = 'var(--accent-gold-light, rgba(245, 158, 11, 0.15))';
+            statusPanel.style.borderColor = 'var(--accent-gold-glowing, #f59e0b)';
+            statusPanel.style.color = 'var(--accent-gold-glowing, #f59e0b)';
         }
     }
 

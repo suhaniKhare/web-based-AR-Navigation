@@ -1,9 +1,33 @@
 /**
  * styles.css
- * Styled design system for the WebAR Navigation client layout.
+ * Core visual design system for the SGSITS Smart AR Navigation System.
+ * Uses a premium, education-campus HSL Navy/Gold branding palette.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap');
+
+:root {
+    /* Color tokens */
+    --campus-navy-dark: #090f1d;
+    --campus-navy-deep: #0f172a;
+    --campus-navy-medium: #1e293b;
+    --campus-navy-light: #334155;
+    
+    --accent-gold-vivid: #d97706;
+    --accent-gold-glowing: #f59e0b;
+    --accent-gold-light: rgba(245, 158, 11, 0.15);
+    
+    --success-emerald: #10b981;
+    --success-emerald-glow: rgba(16, 185, 129, 0.2);
+    
+    --white: #ffffff;
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    
+    --glass-background: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-glow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
 
 body, html {
     margin: 0;
@@ -11,12 +35,12 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: #000000;
-    color: #ffffff;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--campus-navy-dark);
+    color: var(--text-primary);
 }
 
-/* Layer 1: WebRTC Background Feed */
+/* Layer 1: Camera stream background */
 #camera-stream {
     position: absolute;
     top: 0;
@@ -27,7 +51,7 @@ body, html {
     z-index: 1;
 }
 
-/* Layer 2: 3D overlays canvas */
+/* Layer 2: 3D AR canvas overlays */
 #ar-canvas {
     position: absolute;
     top: 0;
@@ -35,10 +59,10 @@ body, html {
     width: 100%;
     height: 100%;
     z-index: 2;
-    pointer-events: none; /* Passes touch clicks through to underlying map */
+    pointer-events: none;
 }
 
-/* Layer 3: HUD Overlay */
+/* Layer 3: HUD UI floating container */
 .hud-container {
     position: absolute;
     top: 0;
@@ -46,110 +70,492 @@ body, html {
     width: 100%;
     height: 100%;
     z-index: 3;
+    display: none; /* Controlled by ui.js toggling */
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+/* --- GLASSMORPHISM SYSTEM --- */
+.glassmorphic-card {
+    background: var(--glass-background);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-glow);
+    border-radius: 24px;
+}
+
+/* --- LANDING PORTAL HOME PAGE --- */
+.landing-portal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: radial-gradient(circle at top, #1e3a8a 0%, var(--campus-navy-dark) 100%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    pointer-events: none; /* Allows canvas clicks to reach map */
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    font-family: 'Outfit', sans-serif;
+    animation: portal-fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Glassmorphic Top Header */
+@keyframes portal-fade-in {
+    from { opacity: 0; transform: scale(1.02); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.portal-fade-out {
+    opacity: 0;
+    transform: scale(0.97);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.landing-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 35px 30px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: auto 0;
+    animation: card-slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+@keyframes card-slide-up {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* SGSITS Logo Container */
+.logo-wrapper {
+    width: 110px;
+    height: 110px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px auto;
+    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.25), 0 0 0 4px var(--accent-gold-glowing);
+    padding: 10px;
+    box-sizing: border-box;
+    animation: logo-glow 3s infinite alternate;
+}
+
+@keyframes logo-glow {
+    from { box-shadow: 0 10px 25px rgba(245, 158, 11, 0.25), 0 0 0 3px var(--accent-gold-glowing); }
+    to { box-shadow: 0 10px 35px rgba(245, 158, 11, 0.55), 0 0 0 5px var(--accent-gold-glowing); }
+}
+
+.college-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.welcome-header {
+    margin-bottom: 30px;
+}
+
+.badge-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--accent-gold-glowing);
+    background: var(--accent-gold-light);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 5px 12px;
+    border-radius: 99px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.portal-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--white);
+    margin: 15px 0 10px 0;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+}
+
+.portal-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Action forms */
+.action-card {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.input-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.select-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.select-wrapper select {
+    width: 100%;
+    padding: 14px 45px 14px 18px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1.5px solid var(--glass-border);
+    border-radius: 12px;
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: all 0.3s;
+}
+
+.select-wrapper select:focus {
+    border-color: var(--accent-gold-glowing);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25);
+    background: rgba(15, 23, 42, 0.85);
+}
+
+.select-wrapper select option {
+    background: var(--campus-navy-deep);
+    color: var(--white);
+    padding: 10px;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.select-wrapper select:focus + .select-arrow {
+    color: var(--accent-gold-glowing);
+}
+
+/* Button design */
+.ui-btn {
+    width: 100%;
+    padding: 15px 24px;
+    border-radius: 12px;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+}
+
+.ui-btn-primary {
+    background: linear-gradient(135deg, var(--accent-gold-glowing) 0%, var(--accent-gold-vivid) 100%);
+    color: var(--white);
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.35);
+}
+
+.ui-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(217, 119, 6, 0.5);
+    filter: brightness(1.05);
+}
+
+.ui-btn-primary:active {
+    transform: translateY(0);
+}
+
+.ui-btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ui-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.portal-footer {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    opacity: 0.7;
+    margin-top: 30px;
+}
+
+/* --- NAVIGATION FLOATING PANELS --- */
 .header {
-    margin: 15px;
-    padding: 12px 18px;
-    background: rgba(15, 23, 42, 0.75); /* Slate 900 tint */
+    margin: 20px;
+    padding: 12px 16px;
+    background: var(--glass-background);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-    pointer-events: auto; /* Active clicking */
+    box-shadow: var(--glass-glow);
+    pointer-events: auto;
+    animation: slide-down 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Custom Dropdown Styling */
-select {
-    background: rgba(255, 255, 255, 0.08);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-    padding: 8px 14px;
-    font-size: 14px;
+@keyframes slide-down {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.header select {
+    background: rgba(15, 23, 42, 0.5);
+    color: var(--white);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 13px;
     font-weight: 600;
-    width: 65%;
+    width: 55%;
     outline: none;
     cursor: pointer;
     font-family: inherit;
-    transition: background 0.3s;
 }
 
-select:focus {
+.hud-back-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.hud-back-btn:hover {
     background: rgba(255, 255, 255, 0.15);
-    border-color: #10b981; /* Focus accent color */
+    transform: scale(1.05);
 }
 
-select option {
-    background: #0f172a;
-    color: #ffffff;
-}
-
-/* GPS Status Indicator */
 #status-panel {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: #10b981; /* Emerald Green */
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--success-emerald);
     padding: 6px 12px;
-    background: rgba(16, 185, 129, 0.15);
+    background: var(--success-emerald-glow);
     border-radius: 8px;
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    text-transform: uppercase;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    letter-spacing: 0.5px;
 }
 
-/* Floating Circular 2D Map */
+/* Floating Circular Map */
 #mini-map {
-    width: 145px;
-    height: 145px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    border: 3px solid #ffffff;
+    border: 3px solid rgba(255, 255, 255, 0.85);
     margin: 20px;
     align-self: flex-end;
-    pointer-events: auto; /* Active panning */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    pointer-events: auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+    border: 3px solid var(--accent-gold-glowing);
 }
 
 #mini-map:hover {
     transform: scale(1.08);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
 }
 
-/* Leaflet User Marker Pulsing Effect */
+/* Pulse indicator on map */
 .user-location-marker {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .user-location-marker::after {
     content: '';
     position: absolute;
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     border: 2px solid #3b82f6;
     border-radius: 50%;
-    animation: marker-pulse 1.8s infinite ease-out;
+    animation: marker-pulse 2s infinite ease-out;
     opacity: 0;
 }
 
-@keyframes marker-pulse {
-    0% {
-        transform: scale(0.4);
-        opacity: 0.8;
+/* --- SENSOR CALIBRATION OVERLAY --- */
+.calibration-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: rgba(9, 15, 29, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.calibration-card {
+    text-align: center;
+    max-width: 320px;
+}
+
+.pulse-loader {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin: 0 auto 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--accent-gold-glowing);
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+    border-top-color: transparent;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.pulse-center {
+    font-size: 32px;
+}
+
+.calibration-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 8px 0;
+}
+
+.calibration-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 20px 0;
+    line-height: 1.4;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--accent-gold-glowing);
+    width: 50%;
+    animation: loading-fill 2s infinite ease-in-out;
+}
+
+@keyframes loading-fill {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(50%); }
+    100% { transform: translateX(100%); }
+}
+
+/* --- MOCK MODALS SYSTEM --- */
+.ui-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+    background: rgba(9, 15, 29, 0.85);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.ui-modal-card {
+    width: 100%;
+    max-width: 360px;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: center;
+    animation: modal-slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 10px 0;
+}
+
+.modal-subtitle {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+
+/* Mobile landscape and viewport adjustments */
+@media (max-width: 480px) {
+    .landing-card {
+        padding: 30px 20px;
     }
-    100% {
-        transform: scale(1.6);
-        opacity: 0;
+    
+    .portal-title {
+        font-size: 24px;
+    }
+    
+    #mini-map {
+        width: 110px;
+        height: 110px;
+        margin: 15px;
     }
 }
