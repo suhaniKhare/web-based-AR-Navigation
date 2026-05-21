@@ -170,14 +170,14 @@ function initCampusGraphData() {
     campusGraph.addNode(new CampusNode("IP", "Department of IP", 22.725512545480214, 75.87273457910088));
 
     campusGraph.addNode(new CampusNode("HOSTEL_PLAY_GROUND", "Hostel Play Ground", 22.726225464476244, 75.87280022519063));
-    campusGraph.addNode(new CampusNode("MV_HOSTEL", "MV Boys Hostel", 22.72677316459135, 75.87212806086463));
+    campusGraph.addNode(new CampusNode("MV_HOSTEL", "M. Visvesariya Boys Hostel", 22.72677316459135, 75.87212806086463));
     // campusGraph.addNode(new CampusNode("VOLLEYBALL_COUR÷T", "Volleyball Court", 22.726416914464966, 75.8728468928091));
     campusGraph.addNode(new CampusNode("JC_BOSE_HOSTEL", "JC Bose Boys Hostel", 22.72767686863935, 75.87279199553944));
 
     campusGraph.addNode(new CampusNode("PROFESSOR_QUARTERS", "Professor's Quarters",  22.727434452041937, 75.87336129273038));
 
     campusGraph.addNode(new CampusNode("DIRECTORS_HOUSE", "House of Director", 22.72725072542688, 75.87397040514685));
-    campusGraph.addNode(new CampusNode("GIRLS_HOSTEL", "Girls Hostel", 22.72764135006807, 75.87385960594767));
+    campusGraph.addNode(new CampusNode("GIRLS_HOSTEL", "Sarojini Naidu Girls Hostel", 22.72764135006807, 75.87385960594767));
     campusGraph.addNode(new CampusNode("EC", "Department of EC", 22.725425, 75.873065));
     campusGraph.addNode(new CampusNode("BM", "Department of Biomedical", 22.725425, 75.873065));
 
@@ -190,10 +190,14 @@ function initCampusGraphData() {
     campusGraph.addNode(new CampusNode("TEAM_GS_RACERS", "Team GS Racers", 22.726096724276974, 75.87211157335415));
     campusGraph.addNode(new CampusNode("DH_HALL", "DH Hall", 22.7259187068436, 75.8722304294318));
     campusGraph.addNode(new CampusNode("STATIONARY", "Stationary Shop", 22.725856239049104, 75.87197561958354));
+        campusGraph.addNode(new CampusNode("GYM", "Gym", 22.725856239049104, 75.87197561958354));
+
    
     campusGraph.addNode(new CampusNode("COMPUTER_CENTER", "Computer Center", 22.725604582283655, 75.87165024037971));
     campusGraph.addNode(new CampusNode("CENTRAL_LIBRARY", "Central Library", 22.72566513704539, 75.87143303219506));
     campusGraph.addNode(new CampusNode("DIRECTORS_OFFICE", "Director's Office", 22.7250695780398, 75.87136999999998));
+    campusGraph.addNode(new CampusNode("MATHS", "Department of Applied Mathematics", 22.7250695780398, 75.87136999999998));
+
     campusGraph.addNode(new CampusNode("EL", "Department of EL", 22.725385, 75.871077));
     campusGraph.addNode(new CampusNode("CIVIL", "Department of Civil", 22.725307891797577, 75.87080210178179));
     campusGraph.addNode(new CampusNode("SAC_GROUND", "SAC Ground", 22.725140627041057, 75.8699662486153));
@@ -218,6 +222,8 @@ function initCampusGraphData() {
     campusGraph.addEdge("H", "I", 1);
     campusGraph.addEdge("I", "X", 1);
     campusGraph.addEdge("X", "DIRECTORS_OFFICE", 1);
+    campusGraph.addEdge("X", "MATHS", 1);
+
     campusGraph.addEdge("DIRECTORS_OFFICE", "V", 1);
     // campusGraph.addEdge("V", "U", 1);
     // campusGraph.addEdge("U", "T", 1);
@@ -259,7 +265,7 @@ function initCampusGraphData() {
     campusGraph.addEdge("PP", "IP", 1);
     campusGraph.addEdge("PP", "BM", 1);
     campusGraph.addEdge("X", "GOLDEN_JUBILEE_AUDITORIUM", 1);
-    campusGraph.addEdge("X", "MECHANICAL", 1);
+    campusGraph.addEdge("I", "MECHANICAL", 1);
     campusGraph.addEdge("DIRECTORS_OFFICE", "EL", 1);
     campusGraph.addEdge("V", "CIVIL", 1);
     campusGraph.addEdge("V", "SAC_GROUND", 1);
@@ -274,6 +280,7 @@ function initCampusGraphData() {
     campusGraph.addEdge("Q", "DH_HALL", 1);
     campusGraph.addEdge("Q", "STATIONARY", 1);
     campusGraph.addEdge("P", "TEAM_GS_RACERS", 1);
+    campusGraph.addEdge("PP", "GYM", 1);
 }
 
 // Automatically initialize map data on script load
