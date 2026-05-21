@@ -181,8 +181,8 @@ function initCampusGraphData() {
     campusGraph.addNode(new CampusNode("EC", "Department of EC", 22.725425, 75.873065));
     campusGraph.addNode(new CampusNode("BM", "Department of Biomedical", 22.725425, 75.873065));
 
-    campusGraph.addNode(new CampusNode("DEPT_APPLIED_PHYSICS", "Department of Applied Physics", 22.725182401612333, 75.87341698356055));
-    campusGraph.addNode(new CampusNode("CS", "Department of CS", 22.725182401612333, 75.87341698356055));
+    campusGraph.addNode(new CampusNode("DEPT_APPLIED_PHYSICS", "Department of Applied Physics and Optoelectronics", 22.725182401612333, 75.87341698356055));
+    campusGraph.addNode(new CampusNode("CS", "Department of Computer Science", 22.725182401612333, 75.87341698356055));
     campusGraph.addNode(new CampusNode("CAFE_91", "Cafe-91", 22.724987152811654, 75.87352595515536));
     campusGraph.addNode(new CampusNode("MECHANICAL", "Department of Mechanical", 22.725200653970262, 75.87273042206783));
     campusGraph.addNode(new CampusNode("GOLDEN_JUBILEE_AUDITORIUM", "Golden Jubilee Auditorium", 22.725092334174665, 75.87223216814168));
@@ -198,8 +198,8 @@ function initCampusGraphData() {
     campusGraph.addNode(new CampusNode("DIRECTORS_OFFICE", "Director's Office", 22.7250695780398, 75.87136999999998));
     campusGraph.addNode(new CampusNode("MATHS", "Department of Applied Mathematics", 22.7250695780398, 75.87136999999998));
 
-    campusGraph.addNode(new CampusNode("EL", "Department of EL", 22.725385, 75.871077));
-    campusGraph.addNode(new CampusNode("CIVIL", "Department of Civil", 22.725307891797577, 75.87080210178179));
+    campusGraph.addNode(new CampusNode("EL", "Department of Electrical Engineering", 22.725385, 75.871077));
+    campusGraph.addNode(new CampusNode("CIVIL", "Department of Civil Engineering", 22.725307891797577, 75.87080210178179));
     campusGraph.addNode(new CampusNode("SAC_GROUND", "SAC Ground", 22.725140627041057, 75.8699662486153));
     campusGraph.addNode(new CampusNode("PHARMACY", "Department of Pharmacy", 22.725887624704317, 75.86978040365841));
     campusGraph.addNode(new CampusNode("CIDI", "CIDI Lab", 22.72584907119545, 75.87074446802146));
