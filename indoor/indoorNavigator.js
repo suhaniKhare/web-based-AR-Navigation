@@ -62,6 +62,11 @@ class IndoorNavigator {
             statusPanel.style.borderColor = 'rgba(16, 185, 129, 0.3)';
         }
 
+        // Restart GPS tracking for outdoor mode
+        if (window.locationTracker && window.handleLocationUpdate && window.handleLocationError) {
+            window.locationTracker.startTracking(window.handleLocationUpdate, window.handleLocationError);
+        }
+
         // Call the original outdoor teardown function to clean up routes
         if (window.originalStopActiveNavigation) {
             window.originalStopActiveNavigation();
