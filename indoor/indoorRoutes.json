@@ -49,5 +49,152 @@
         { "step": 2, "instruction": "Turn right and go straight to the end" }
       ]
     }
+  },
+
+  "CS": {
+
+    "HOD_OFFICE": {
+      "name": "Computer Science HOD Office",
+      "steps": [
+        { "step": 1, "instruction": "Go to the first floor" },
+        { "step": 2, "instruction": "Proceed towards the HOD Office" }
+      ]
+    },
+
+    "LABS": {
+      "name": "Computer Science Labs",
+      "steps": [
+        { "step": 1, "instruction": "Go to the first floor" },
+        { "step": 2, "instruction": "Proceed towards the labs" }
+      ]
+    }
+  },
+
+  "DEPT_APPLIED_PHYSICS": {
+    "HOD_OFFICE": {
+      "name": "Applied Physics HOD Office",
+      "steps": [
+        { "step": 1, "instruction": "Face the corridor" },
+        { "step": 2, "instruction": "Turn right" },
+        { "step": 3, "instruction": "Go straight" }
+      ]
+    },
+
+    "LABS": {
+      "name": "Physics Lab",
+      "steps": [
+        { "step": 1, "instruction": "Face the corridor" },
+        { "step": 2, "instruction": "Turn left" },
+        { "step": 3, "instruction": "Go straight" }
+      ]
+    }
+  },
+
+  "BM": {
+    "HOD_OFFICE": {
+      "name": "Biomedical Department HOD Office",
+      "steps": [
+        { "step": 1, "instruction": "Face the corridor" },
+        { "step": 2, "instruction": "Turn left" },
+        { "step": 3, "instruction": "Continue straight" }
+      ]
+    }
+  },
+
+  "Mechanical": {
+    "HOD_OFFICE": {
+      "name": "Mechanical Department HOD Office",
+      "steps": [
+        { "step": 1, "instruction": "Face the corridor" },
+        { "step": 2, "instruction": "Turn left" },
+        { "step": 3, "instruction": "Continue straight" }
+      ]
+    }
+  },
+
+  "GOLDEN_JUBILEE_AUDITORIUM": {
+    "MAIN_BUILDING": {
+      "name": "Golden Jubilee Auditorium",
+      "steps": [
+        { "step": 1, "instruction": "Go to the first floor" },
+        { "step": 2, "instruction": "Proceed straight towards the GJ Hall" }
+      ]
+    }
+  },
+
+  "EL": {
+    "LABS": {
+      "name": "Electrical Machine Lab",
+      "steps": [
+        { "step": 1, "instruction": "Go straight" },
+        { "step": 2, "instruction": "Turn right" },
+        { "step": 3, "instruction": "Continue straight" }
+      ]
+    },
+
+    "HOD_OFFICE": {
+      "name": "Electrical Department HOD Office",
+      "steps": [
+        { "step": 1, "instruction": "Go straight" },
+        { "step": 2, "instruction": "Turn left" },
+        { "step": 3, "instruction": "Continue straight" }
+      ]
+    }
+  },
+
+  "Civil": {
+    "HOD_OFFICE": {
+      "name": "Civil Department HOD Office",
+      "steps": [
+        { "step": 1, "instruction": "Face the corridor" },
+        { "step": 2, "instruction": "Turn left" },
+        { "step": 3, "instruction": "Go straight" }
+      ]
+    },
+    "LABS": {
+      "name": "Civil Labs",
+      "steps": [
+        { "step": 1, "instruction": "Face the corridor" },
+        { "step": 2, "instruction": "Turn left" },
+        { "step": 3, "instruction": "Proceed straight to the Civil Labs" }
+      ]
+    }
+  },
+
+  "DEPT_APPLIED_CHEMISTRY": {
+    "HOD_OFFICE": {
+      "name": "Chemistry Department HOD Office",
+      "steps": [
+        { "step": 1, "instruction": "Go straight" },
+        { "step": 2, "instruction": "Turn left" },
+        { "step": 3, "instruction": "Continue straight" }
+      ]
+    },
+
+    "LABS": {
+      "name": "Chemistry Lab",
+      "steps": [
+        { "step": 1, "instruction": "Go straight" },
+        { "step": 2, "instruction": "Continue ahead to reach the Chemistry Lab" }
+      ]
+    }
+  },
+
+  "EC": {
+    "HOD_OFFICE": {
+      "name": "Electronics & Communication HOD Office",
+      "steps": [
+        { "step": 1, "instruction": "Go to the first floor" },
+        { "step": 2, "instruction": "Proceed to the HOD Office" }
+      ]
+    },
+    "LABS": {
+      "name": "Electronics & Communication Labs",
+      "steps": [
+        { "step": 1, "instruction": "Go to the second floor" },
+        { "step": 2, "instruction": "Turn right and proceed to the EC Labs" }
+      ]
+    }
   }
+
 }

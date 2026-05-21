@@ -120,6 +120,11 @@ class IndoorTextGuideManager {
         const totalSteps = this.routeSteps.length;
         const percent = (stepNum / totalSteps) * 100;
 
+        // Process vertical floor elevation transitions
+        if (window.floorNavigation) {
+            window.floorNavigation.processStepElevation(currentStep);
+        }
+
         // Render HTML structure
         this.container.innerHTML = `
             <div class="guide-header">
