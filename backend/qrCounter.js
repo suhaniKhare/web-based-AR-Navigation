@@ -8,7 +8,7 @@
 // REPLACE THE PLACEHOLDER BELOW WITH YOUR ACTUAL DEPLOYED API URL
 // Example: "https://your-webar-backend.onrender.com/api/scan"
 // ==========================================
-const API_URL = "https://your-backend-api-placeholder.onrender.com/api/scan";
+const API_URL = "https://sgsits-ar-navigation.vercel.app";
 
 function initQRCounter() {
     const urlParams = new URLSearchParams(window.location.search);
