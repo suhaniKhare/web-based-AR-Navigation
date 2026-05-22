@@ -7,10 +7,31 @@
     <!-- Leaflet CSS for 2D Map rendering -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <!-- Customized design tokens -->
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles.css?v=1.1">
 </head>
 <body>
-
+    <!-- Premium Welcome Landing Page -->
+    <div id="landing-page">
+        <div class="bg"></div>
+        <div class="bg-overlay"></div>
+        <div class="glass-card">
+            <img src="logo.jpg" alt="Logo" class="logo">
+            <div class="divider"></div>
+            <div class="title">Shri G. S. Institute of Technology and Science</div>
+            <div class="subtitle">WELCOME YOU</div>
+            <div class="main-title">AR Navigation System</div>
+            <div class="by">DEVELOPED BY</div>
+            <div class="dept">Department of Information Technology</div>
+            <div class="credits">
+                <div class="credits-by">BY THE STUDENTS</div>
+                <div class="names">
+                    Suhani Khare <span>|</span> Shrishty Alanse <span>|</span> Gourav Solanki
+                </div>
+            </div>
+            <button id="start-ar-btn" class="btn">Start Navigation</button>
+        </div>
+    </div>
     <!-- Camera viewport background feed -->
     <video id="camera-stream" autoplay playsinline muted></video>
 
@@ -40,6 +61,7 @@
     <script src="location.js"></script>
     <script src="orientation.js"></script>
     <script src="navigation.js"></script>
+    <script src="ui.js"></script>
     <script src="app.js"></script>
     <script src="ui.js"></script>
 
@@ -50,13 +72,14 @@
     <script src="indoor/indoorNavigator.js"></script>
     <script src="indoor/labMenu.js"></script>
     <script src="indoor/destinationMenu.js"></script>
+
     <!-- Indoor Navigation System -->
-    <script src="indoor/buildingMapManager.js"></script>
-    <script src="indoor/labMenu.js"></script>
-    <script src="indoor/destinationMenu.js"></script>
-    <script src="indoor/floorNavigation.js"></script>
-    <script src="indoor/indoorTextGuide.js"></script>
-    <script src="indoor/indoorNavigator.js"></script>
-    <script src="indoor/transitionController.js"></script>
+    <!-- <script src="indoor/buildingMapManager.js"></script> -->
+    <!-- <script src="indoor/labMenu.js"></script> -->
+    <!-- <script src="indoor/destinationMenu.js"></script> -->
+    <!-- <script src="indoor/floorNavigation.js"></script> -->
+    <!-- <script src="indoor/indoorTextGuide.js"></script> -->
+    <!-- <script src="indoor/indoorNavigator.js"></script> -->
+    <!-- <script src="indoor/transitionController.js"></script> -->
 </body>
 </html>
