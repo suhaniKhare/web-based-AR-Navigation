@@ -405,6 +405,7 @@ select option {
 /* Glassmorphic QR Stats Badge */
 .qr-stats-badge {
     margin-top: 20px;
+    margin-bottom: 24px;
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.85);
     background: rgba(255, 255, 255, 0.08);
