@@ -1,6 +1,7 @@
 {
   "ATC": {
     "hasIndoor": true,
+    "tourUrl": "https://it-department-360view.netlify.app/",
     "primaryOptions": [
       { "id": "HOD_OFFICE", "label": "K.K. Sharma (IT HOD)", "type": "route" },
       { "id": "DEAN_OFFICE", "label": "Dean's Office", "type": "route" },

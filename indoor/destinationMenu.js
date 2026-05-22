@@ -16,17 +16,17 @@ class DestinationMenuManager {
         style.textContent = `
             .indoor-modal-overlay {
                 position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(16px);
+                background: rgba(9, 15, 29, 0.85); backdrop-filter: blur(16px);
                 -webkit-backdrop-filter: blur(16px);
                 display: flex; align-items: center; justify-content: center;
-                z-index: 1000; font-family: 'Outfit', 'Inter', sans-serif; padding: 20px;
+                z-index: 1001; font-family: 'Outfit', 'Inter', sans-serif; padding: 20px;
                 box-sizing: border-box;
             }
             .indoor-modal-card {
-                background: rgba(30, 41, 59, 0.8);
-                border: 1px solid rgba(255, 255, 255, 0.12);
+                background: var(--glass-background, rgba(15, 23, 42, 0.7));
+                border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.08));
                 border-radius: 24px; width: 100%; max-width: 360px;
-                padding: 30px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                padding: 30px; box-shadow: var(--glass-glow, 0 8px 32px 0 rgba(0, 0, 0, 0.37));
                 box-sizing: border-box; text-align: center;
                 animation: modal-slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             }
@@ -35,51 +35,65 @@ class DestinationMenuManager {
                 to { transform: translateY(0); opacity: 1; }
             }
             .indoor-modal-title {
-                font-size: 22px; font-weight: 700; color: #ffffff; margin: 0 0 8px 0;
+                font-size: 22px; font-weight: 700; color: var(--white, #ffffff); margin: 0 0 8px 0;
                 letter-spacing: -0.5px;
             }
             .indoor-modal-subtitle {
-                font-size: 13.5px; color: #94a3b8; margin: 0 0 25px 0; line-height: 1.5;
+                font-size: 13.5px; color: var(--text-muted, #94a3b8); margin: 0 0 25px 0; line-height: 1.5;
             }
             .indoor-btn {
-                width: 100%; padding: 14px 20px; border-radius: 14px; border: none;
-                font-size: 15px; font-weight: 600; cursor: pointer; margin-bottom: 12px;
+                width: 100%; padding: 14px 20px; border-radius: 12px; border: none;
+                font-size: 15px; font-weight: 700; cursor: pointer; margin-bottom: 12px;
                 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-sizing: border-box; display: flex;
                 align-items: center; justify-content: center; gap: 10px;
-                text-decoration: none; text-align: center;
+                text-decoration: none; text-align: center; font-family: 'Outfit', sans-serif;
             }
             .indoor-btn:last-child {
                 margin-bottom: 0;
             }
             .indoor-btn-primary {
-                background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white;
-                box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+                background: linear-gradient(135deg, var(--accent-gold-glowing, #f59e0b) 0%, var(--accent-gold-vivid, #d97706) 100%);
+                color: var(--white, #ffffff);
+                box-shadow: 0 6px 20px rgba(217, 119, 6, 0.35);
             }
             .indoor-btn-primary:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+                box-shadow: 0 10px 25px rgba(217, 119, 6, 0.5);
+                filter: brightness(1.05);
             }
             .indoor-btn-primary:active { transform: translateY(0); }
             
             .indoor-btn-secondary {
-                background: rgba(255, 255, 255, 0.05); color: white;
-                border: 1px solid rgba(255, 255, 255, 0.1);
+                background: rgba(255, 255, 255, 0.05); color: var(--white, #ffffff);
+                border: 1px solid rgba(255, 255, 255, 0.08);
             }
             .indoor-btn-secondary:hover {
                 background: rgba(255, 255, 255, 0.1);
-                border-color: rgba(255, 255, 255, 0.2);
+                border-color: rgba(255, 255, 255, 0.15);
             }
             .indoor-btn-secondary:active { background: rgba(255, 255, 255, 0.15); }
             
             .indoor-btn-danger {
-                background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white;
-                box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+                background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: var(--white, #ffffff);
+                box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
             }
             .indoor-btn-danger:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 8px 25px rgba(239, 68, 68, 0.5);
+                box-shadow: 0 10px 25px rgba(239, 68, 68, 0.5);
+                filter: brightness(1.05);
             }
             .indoor-btn-danger:active { transform: translateY(0); }
+
+            .indoor-btn-tour {
+                background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); color: var(--white, #ffffff);
+                box-shadow: 0 6px 20px rgba(8, 145, 178, 0.35);
+            }
+            .indoor-btn-tour:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 25px rgba(8, 145, 178, 0.5);
+                filter: brightness(1.05);
+            }
+            .indoor-btn-tour:active { transform: translateY(0); }
         `;
         document.head.appendChild(style);
     }
@@ -172,6 +186,24 @@ class DestinationMenuManager {
                 container.appendChild(btn);
             }
         });
+
+        // Render Option 4: Building Virtual Tour (if configured)
+        if (directory.tourUrl) {
+            const tourBtn = document.createElement('button');
+            tourBtn.className = 'indoor-btn indoor-btn-tour';
+            const btnLabel = directory.tourLabel || `${buildingId} Building Tour`;
+            tourBtn.innerHTML = `
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                ${btnLabel}
+            `;
+            tourBtn.addEventListener('click', () => {
+                window.open(directory.tourUrl, '_blank');
+            });
+            container.appendChild(tourBtn);
+        }
     }
 
     /**

@@ -34,6 +34,7 @@ class BuildingMapManager {
         this.directory = {
             "ATC": {
                 "hasIndoor": true,
+                "tourUrl": "https://www.google.com/maps/uv?pb=!1s0x3962fd22c7a10fd3%3A0xe5a3eb17be54c5e3!3m1!7e115!4shttps%3A%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipPlHqK21aP6B7RzI97vW1tZl-FhD2UjW8c3_u4%3Dw520-h350-n-k-no!5satc%20sgsits%20-%20Google%20Search!15sCgIgAQ&imagekey=!1e10!2sAF1QipPlHqK21aP6B7RzI97vW1tZl-FhD2UjW8c3_u4&hl=en&authuser=0",
                 "primaryOptions": [
                     { "id": "HOD_OFFICE", "label": "HOD Office", "type": "route" },
                     { "id": "LABS", "label": "Labs", "type": "submenu" }
@@ -110,12 +111,20 @@ class BuildingMapManager {
     }
 
     getBuildingDirectory(buildingId) {
-        return this.directory[buildingId] || null;
+        if (!buildingId) return null;
+        const upperId = buildingId.toUpperCase();
+        const key = Object.keys(this.directory).find(k => k.toUpperCase() === upperId);
+        return key ? this.directory[key] : null;
     }
 
     getRoute(buildingId, routeId) {
-        if (this.routes[buildingId] && this.routes[buildingId][routeId]) {
-            return this.routes[buildingId][routeId];
+        if (!buildingId || !routeId) return null;
+        const upperBuildingId = buildingId.toUpperCase();
+        const bKey = Object.keys(this.routes).find(k => k.toUpperCase() === upperBuildingId);
+        if (bKey && this.routes[bKey]) {
+            const upperRouteId = routeId.toUpperCase();
+            const rKey = Object.keys(this.routes[bKey]).find(k => k.toUpperCase() === upperRouteId);
+            return rKey ? this.routes[bKey][rKey] : null;
         }
         return null;
     }

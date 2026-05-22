@@ -279,9 +279,8 @@ function checkDestinationReached() {
     if (distToDest <= arrivalThreshold) {
         window.navigationManager.announceArrival();
         
-        // Show alert overlay dialog
+        // Automatically stop active navigation and trigger the indoor transition
         setTimeout(() => {
-            alert(`You have arrived at: ${finalNode.name}`);
             stopActiveNavigation();
         }, 800);
     }

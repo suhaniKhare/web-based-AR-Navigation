@@ -1,0 +1,16 @@
+{
+  "name": "webar-navigation-backend",
+  "version": "1.0.0",
+  "description": "Backend API server for Web-Based AR Navigation QR Scan Counter using MongoDB and Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^4.22.2",
+    "mongodb": "^6.21.0"
+  }
+}

@@ -19,11 +19,13 @@ class IndoorTextGuideManager {
         style.textContent = `
             .indoor-guide-hud {
                 position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
-                width: 90%; max-width: 400px; background: rgba(15, 23, 42, 0.9);
-                backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-                border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px;
+                width: 90%; max-width: 400px;
+                background: var(--glass-background, rgba(15, 23, 42, 0.9));
+                backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+                border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.08));
+                border-radius: 20px;
                 padding: 20px; box-sizing: border-box; z-index: 998;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+                box-shadow: var(--glass-glow, 0 8px 32px 0 rgba(0, 0, 0, 0.37));
                 font-family: 'Outfit', sans-serif;
                 animation: guide-slide-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
             }
@@ -36,37 +38,56 @@ class IndoorTextGuideManager {
                 margin-bottom: 12px;
             }
             .guide-step-indicator {
-                font-size: 12px; font-weight: 700; color: #10b981;
-                background: rgba(16, 185, 129, 0.15); padding: 4px 10px;
+                font-size: 11px; font-weight: 800;
+                color: var(--accent-gold-glowing, #f59e0b);
+                background: var(--accent-gold-light, rgba(245, 158, 11, 0.15));
+                padding: 5px 10px;
                 border-radius: 6px; letter-spacing: 0.5px;
+                border: 1px solid rgba(245, 158, 11, 0.3);
             }
             .guide-instruction-text {
-                font-size: 16px; font-weight: 600; color: #ffffff;
+                font-size: 15px; font-weight: 600; color: var(--text-primary, #f8fafc);
                 line-height: 1.5; text-align: left; min-height: 50px;
                 margin-bottom: 15px;
+                font-family: 'Inter', sans-serif;
             }
             .guide-progress-bar-bg {
                 width: 100%; height: 4px; background: rgba(255, 255, 255, 0.1);
                 border-radius: 99px; margin-bottom: 20px; overflow: hidden;
             }
             .guide-progress-bar-fill {
-                height: 100%; background: #10b981; width: 0%;
+                height: 100%;
+                background: linear-gradient(90deg, var(--accent-gold-glowing, #f59e0b) 0%, var(--accent-gold-vivid, #d97706) 100%);
+                width: 0%;
                 transition: width 0.3s ease;
             }
             .guide-footer-controls {
                 display: flex; gap: 10px;
             }
             .guide-nav-btn {
-                flex: 1; padding: 10px; border-radius: 10px; border: none;
+                flex: 1; padding: 12px; border-radius: 10px; border: none;
                 font-size: 14px; font-weight: 700; cursor: pointer;
-                transition: background 0.2s;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                box-sizing: border-box;
+                font-family: 'Outfit', sans-serif;
             }
             .guide-nav-btn-back {
-                background: rgba(255, 255, 255, 0.08); color: white;
-                border: 1px solid rgba(255, 255, 255, 0.1);
+                background: rgba(255, 255, 255, 0.05); color: var(--white, #ffffff);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .guide-nav-btn-back:hover {
+                background: rgba(255, 255, 255, 0.1);
+                border-color: rgba(255, 255, 255, 0.15);
             }
             .guide-nav-btn-next {
-                background: #10b981; color: white;
+                background: linear-gradient(135deg, var(--accent-gold-glowing, #f59e0b) 0%, var(--accent-gold-vivid, #d97706) 100%);
+                color: var(--white, #ffffff);
+                box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+            }
+            .guide-nav-btn-next:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+                filter: brightness(1.05);
             }
         `;
         document.head.appendChild(style);
@@ -101,7 +122,7 @@ class IndoorTextGuideManager {
 
         // Process vertical floor elevation transitions
         if (window.floorNavigation) {
-            window.floorNavigation.processStepElevation(currentStep);
+            window.floorNavigation.updateFloorForStep(this.routeSteps, this.currentStepIndex);
         }
 
         // Render HTML structure
