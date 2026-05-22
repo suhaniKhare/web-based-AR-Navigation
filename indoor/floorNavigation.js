@@ -13,7 +13,10 @@ class FloorNavigationManager {
      * @param {Object} step Step object from routes database.
      */
     processStepElevation(step) {
-        if (step.floorChange) {
+        if (step.floor) {
+            this.currentFloor = step.floor;
+            this.updateFloorUI();
+        } else if (step.floorChange) {
             if (step.floorChange === "up") {
                 this.currentFloor = "First Floor";
             } else if (step.floorChange === "down") {
@@ -21,6 +24,28 @@ class FloorNavigationManager {
             }
             this.updateFloorUI();
         }
+    }
+
+    /**
+     * Scans step history up to the current index to calculate the active floor level.
+     * @param {Array} steps Array of steps.
+     * @param {number} currentStepIndex The current step index.
+     */
+    updateFloorForStep(steps, currentStepIndex) {
+        this.currentFloor = "Ground Floor"; // default starting floor
+        for (let i = 0; i <= currentStepIndex; i++) {
+            const step = steps[i];
+            if (step.floor) {
+                this.currentFloor = step.floor;
+            } else if (step.floorChange) {
+                if (step.floorChange === "up") {
+                    this.currentFloor = "First Floor";
+                } else if (step.floorChange === "down") {
+                    this.currentFloor = "Ground Floor";
+                }
+            }
+        }
+        this.updateFloorUI();
     }
 
     updateFloorUI() {

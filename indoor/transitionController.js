@@ -19,18 +19,21 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 console.log(`Arrival intercepted: Transitioning user to ${buildingName} indoor menu.`);
 
-                // 1. Temporarily pause GPS tracking to prevent coordinate shifts inside walls
+                // 1. Call original teardown to clear outdoor navigation states (clears activeRoute, stops AR arrows, removes map layers)
+                window.originalStopActiveNavigation();
+
+                // 2. Temporarily pause GPS tracking to prevent coordinate shifts inside walls
                 if (window.locationTracker) {
                     window.locationTracker.stopTracking();
                 }
 
-                // 2. Erase the outdoor 2D map lines to clear screen space
-                if (window.routePolyline && window.mapObject) {
-                    window.mapObject.removeLayer(window.routePolyline);
-                    window.routePolyline = null;
+                // 3. Hide the 2D mini-map to maximize AR camera space and prevent HUD overlaps
+                const mapEl = document.getElementById('mini-map');
+                if (mapEl) {
+                    mapEl.style.display = 'none';
                 }
 
-                // 3. Open the building floor options selection menu
+                // 4. Open the building floor options selection menu
                 window.destinationMenu.showArrivalMenu(destinationId, buildingName);
             } else {
                 // Fallback to default outdoor teardown

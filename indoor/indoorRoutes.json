@@ -18,7 +18,7 @@
      "T&P Cell": {
       "name": "Training and Placement Cell",
       "steps": [
-        { "step": 1, "instruction": "Go to 5th floor" },
+        { "step": 1, "instruction": "Go to 5th floor", "floor": "5th Floor" },
         { "step": 2, "instruction": "Turn right then go straight" }
       ]
     },
@@ -68,7 +68,7 @@
     "HOD_OFFICE": {
       "name": "Computer Science HOD Office",
       "steps": [
-        { "step": 1, "instruction": "Go to the first floor" },
+        { "step": 1, "instruction": "Go to the first floor", "floor": "First Floor" },
         { "step": 2, "instruction": "Proceed towards right corridor" }
       ]
     },
@@ -76,7 +76,7 @@
     "LABS": {
       "name": "Computer Science Labs",
       "steps": [
-        { "step": 1, "instruction": "Go to the first floor" },
+        { "step": 1, "instruction": "Go to the first floor", "floor": "First Floor" },
         { "step": 2, "instruction": "Proceed towards right corridor" }
       ]
     }
@@ -128,7 +128,7 @@
     "MAIN_BUILDING": {
       "name": "Golden Jubilee Auditorium",
       "steps": [
-        { "step": 1, "instruction": "Go to the first floor" },
+        { "step": 1, "instruction": "Go to the first floor", "floor": "First Floor" },
         { "step": 2, "instruction": "Proceed straight towards the GJ Hall" }
       ]
     }
@@ -196,14 +196,14 @@
     "HOD_OFFICE": {
       "name": "Electronics & Communication HOD Office",
       "steps": [
-        { "step": 1, "instruction": "Go to the first floor" },
+        { "step": 1, "instruction": "Go to the first floor", "floor": "First Floor" },
         { "step": 2, "instruction": "Proceed to the HOD Office" }
       ]
     },
     "LABS": {
       "name": "Electronics & Communication Labs",
       "steps": [
-        { "step": 1, "instruction": "Go to the second floor" },
+        { "step": 1, "instruction": "Go to the second floor", "floor": "Second Floor" },
         { "step": 2, "instruction": "Turn right and proceed to the EC Labs" }
       ]
     }

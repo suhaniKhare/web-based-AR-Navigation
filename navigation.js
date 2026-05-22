@@ -103,7 +103,7 @@ class WebNavigationManager {
      */
     updateLocation(userLoc, currentWaypointIndex, currentAzimuth) {
         if (!userLoc || this.routeWaypoints.length === 0) return;
-        if (currentWaypointIndex < 0 || currentWaypointIndex >= this.routeWaypoints.size) return;
+        if (currentWaypointIndex < 0 || currentWaypointIndex >= this.routeWaypoints.length) return;
 
         const targetWaypoint = this.routeWaypoints[currentWaypointIndex];
         const distance = window.campusGraph.getDistance(

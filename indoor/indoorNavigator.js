@@ -60,6 +60,16 @@ class IndoorNavigator {
             statusPanel.innerText = 'GPS OK';
             statusPanel.style.background = 'rgba(16, 185, 129, 0.15)';
             statusPanel.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+            statusPanel.style.color = '#10b981'; // Reset color back to status emerald
+        }
+
+        // Show the 2D mini-map again and refresh Leaflet scale bounds
+        const mapEl = document.getElementById('mini-map');
+        if (mapEl) {
+            mapEl.style.display = 'block';
+            if (window.mapObject) {
+                window.mapObject.invalidateSize();
+            }
         }
 
         // Resume high-accuracy GPS tracking for outdoor map awareness

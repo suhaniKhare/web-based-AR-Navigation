@@ -24,12 +24,16 @@
             <div class="by">DEVELOPED BY</div>
             <div class="dept">Department of Information Technology</div>
             <div class="credits">
-                <div class="credits-by">BY THE STUDENTS</div>
+                <div class="credits-by">DEVELOPER TEAM</div>
                 <div class="names">
                     Suhani Khare <span>|</span> Shrishty Alanse <span>|</span> Gourav Solanki
                 </div>
             </div>
             <button id="start-ar-btn" class="btn">Start Navigation</button>
+            <div class="qr-stats-badge">
+                <span class="pulse-dot"></span>
+                QR Scans: <span id="scan-count">Loading...</span>
+            </div>
         </div>
     </div>
     <!-- Camera viewport background feed -->
@@ -63,7 +67,6 @@
     <script src="navigation.js"></script>
     <script src="ui.js"></script>
     <script src="app.js"></script>
-    <script src="ui.js"></script>
 
     <!-- Indoor navigation logic integration -->
     <script src="indoor/buildingMapManager.js"></script>
@@ -72,14 +75,7 @@
     <script src="indoor/indoorNavigator.js"></script>
     <script src="indoor/labMenu.js"></script>
     <script src="indoor/destinationMenu.js"></script>
-
-    <!-- Indoor Navigation System -->
-    <!-- <script src="indoor/buildingMapManager.js"></script> -->
-    <!-- <script src="indoor/labMenu.js"></script> -->
-    <!-- <script src="indoor/destinationMenu.js"></script> -->
-    <!-- <script src="indoor/floorNavigation.js"></script> -->
-    <!-- <script src="indoor/indoorTextGuide.js"></script> -->
-    <!-- <script src="indoor/indoorNavigator.js"></script> -->
-    <!-- <script src="indoor/transitionController.js"></script> -->
+    <script src="indoor/transitionController.js"></script>
+    <script src="qrCounter.js"></script>
 </body>
 </html>

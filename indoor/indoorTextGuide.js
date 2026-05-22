@@ -122,7 +122,7 @@ class IndoorTextGuideManager {
 
         // Process vertical floor elevation transitions
         if (window.floorNavigation) {
-            window.floorNavigation.processStepElevation(currentStep);
+            window.floorNavigation.updateFloorForStep(this.routeSteps, this.currentStepIndex);
         }
 
         // Render HTML structure
