@@ -272,7 +272,8 @@ function initCampusGraphData() {
     campusGraph.addEdge("T", "SAC_GROUND", 1);
     campusGraph.addEdge("T", "PHARMACY", 1);
     campusGraph.addEdge("V", "DEPT_APPLIED_CHEMISTRY", 1);
-    campusGraph.addEdge("T", "CIDI_LAB", 1);
+    campusGraph.addEdge("T", "CIDI", 1);
+    campusGraph.addEdge("S", "CIDI", 1);
     campusGraph.addEdge("R", "CENTRAL_LIBRARY", 1);
     campusGraph.addEdge("R", "WORKSHOP", 1);
     campusGraph.addEdge("Q", "SILVERIA_HALL", 1);
