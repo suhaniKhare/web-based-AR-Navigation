@@ -12,27 +12,43 @@ app.use(express.json());
 
 const MONGODB_URI = process.env.MONGODB_URI ;
 
-let db, statsCollection, logsCollection;
+let db = null;
+let statsCollection = null;
+let logsCollection = null;
+let connectionPromise = null;
 
 async function connectDB() {
-    try {
-        const client = new MongoClient(MONGODB_URI);
-        await client.connect();
-        db = client.db('webar_navigation');
-        statsCollection = db.collection('scan_stats');
-        logsCollection = db.collection('scan_logs'); // Logs raw scans for audit trails and rich statistics
-        console.log("MongoDB connected successfully!");
-    } catch (err) {
-        console.error("Failed to connect to MongoDB:", err);
+    if (db) return db;
+    if (!MONGODB_URI) {
+        return null;
     }
+    if (!connectionPromise) {
+        connectionPromise = (async () => {
+            const client = new MongoClient(MONGODB_URI);
+            await client.connect();
+            db = client.db('webar_navigation');
+            statsCollection = db.collection('scan_stats');
+            logsCollection = db.collection('scan_logs'); // Logs raw scans for audit trails and rich statistics
+            console.log("MongoDB connected successfully!");
+            return db;
+        })();
+    }
+    return connectionPromise;
 }
-connectDB();
+
+// Start database connection in background on boot
+connectDB().catch(err => console.error("Initial connection error:", err));
 
 // API Endpoint to process QR scan and return the total count
 app.get('/api/scan', async (req, res) => {
     try {
         const dest = req.query.dest || 'direct';
         const isIncrement = req.query.increment === 'true';
+
+        // Await connection if we have a URI (ensures cold starts resolve DB before serving request)
+        if (MONGODB_URI) {
+            await connectDB();
+        }
 
         // Check if DB is connected (fallback to a dummy mock count if database is not configured yet)
         if (!db) {
