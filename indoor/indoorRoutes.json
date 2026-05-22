@@ -15,7 +15,7 @@
         { "step": 3, "instruction": "Dean's Office is on your left" }
       ]
     },
-     "T&P Cell": {
+    "T&P Cell": {
       "name": "Training and Placement Cell",
       "steps": [
         { "step": 1, "instruction": "Go to 5th floor", "floor": "5th Floor" },
@@ -27,7 +27,7 @@
       "steps": [
         { "step": 1, "instruction": "Face the stairs" },
         { "step": 2, "instruction": "Turn left and go straight to the end" },
-         { "step": 3, "instruction": "Lab 111 is on your right" }
+        { "step": 3, "instruction": "Lab 111 is on your right" }
       ]
     },
     "LAB_101": {
@@ -42,8 +42,8 @@
       "name": "Lab 107 (English Lab)",
       "steps": [
         { "step": 1, "instruction": "Face the stairs" },
-        { "step": 2, "instruction": "Turn right and go straight to the end"},
-         { "step": 3, "instruction": "Lab 107 is on your left" }
+        { "step": 2, "instruction": "Turn right and go straight to the end" },
+        { "step": 3, "instruction": "Lab 107 is on your left" }
       ]
     },
     "LAB_105": {
@@ -58,17 +58,20 @@
       "steps": [
         { "step": 1, "instruction": "Face the stairs" },
         { "step": 2, "instruction": "Turn right and go straight" },
-         { "step": 3, "instruction": "Lab 101 is on your right" }
+        { "step": 3, "instruction": "Lab 101 is on your right" }
       ]
     }
   },
 
   "CS": {
-
     "HOD_OFFICE": {
       "name": "Computer Science HOD Office",
       "steps": [
-        { "step": 1, "instruction": "Go to the first floor", "floor": "First Floor" },
+        {
+          "step": 1,
+          "instruction": "Go to the first floor",
+          "floor": "First Floor"
+        },
         { "step": 2, "instruction": "Proceed towards right corridor" }
       ]
     },
@@ -76,7 +79,11 @@
     "LABS": {
       "name": "Computer Science Labs",
       "steps": [
-        { "step": 1, "instruction": "Go to the first floor", "floor": "First Floor" },
+        {
+          "step": 1,
+          "instruction": "Go to the first floor",
+          "floor": "First Floor"
+        },
         { "step": 2, "instruction": "Proceed towards right corridor" }
       ]
     }
@@ -128,7 +135,11 @@
     "MAIN_BUILDING": {
       "name": "Golden Jubilee Auditorium",
       "steps": [
-        { "step": 1, "instruction": "Go to the first floor", "floor": "First Floor" },
+        {
+          "step": 1,
+          "instruction": "Go to the first floor",
+          "floor": "First Floor"
+        },
         { "step": 2, "instruction": "Proceed straight towards the GJ Hall" }
       ]
     }
@@ -187,7 +198,10 @@
       "name": "Chemistry Lab",
       "steps": [
         { "step": 1, "instruction": "Go straight" },
-        { "step": 2, "instruction": "Continue ahead to reach the Chemistry Lab" }
+        {
+          "step": 2,
+          "instruction": "Continue ahead to reach the Chemistry Lab"
+        }
       ]
     }
   },
@@ -196,17 +210,54 @@
     "HOD_OFFICE": {
       "name": "Electronics & Communication HOD Office",
       "steps": [
-        { "step": 1, "instruction": "Go to the first floor", "floor": "First Floor" },
+        {
+          "step": 1,
+          "instruction": "Go to the first floor",
+          "floor": "First Floor"
+        },
         { "step": 2, "instruction": "Proceed to the HOD Office" }
       ]
     },
     "LABS": {
       "name": "Electronics & Communication Labs",
       "steps": [
-        { "step": 1, "instruction": "Go to the second floor", "floor": "Second Floor" },
+        {
+          "step": 1,
+          "instruction": "Go to the second floor",
+          "floor": "Second Floor"
+        },
         { "step": 2, "instruction": "Turn right and proceed to the EC Labs" }
       ]
     }
-  }
+  },
 
+  "DIRECTORS_OFFICE": {
+    "DIRECTOR_CABIN": {
+      "name": "Director’s Office",
+      "steps": [{ "step": 1, "instruction": "Head straight towards the end" }]
+    },
+    "ACCOUNTS_OFFICE": {
+      "name": "Accounts Section",
+      "steps": [
+        { "step": 1, "instruction": "Go straight" },
+        { "step": 2, "instruction": "Accounts’s office is on your right" }
+      ]
+    },
+
+    "REGISTRAR_OFFICE": {
+      "name": "Registrar Office",
+      "steps": [
+        { "step": 1, "instruction": "Go straight" },
+        { "step": 2, "instruction": "Registrar’s office is on your left" }
+      ]
+    },
+
+    "SCHOLARSHIP_OFFICE": {
+      "name": "Scholarship Section",
+      "steps": [
+        { "step": 1, "instruction": "Go straight" },
+        { "step": 2, "instruction": "Scholarship section is on your left" }
+      ]
+    }
+  }
 }
