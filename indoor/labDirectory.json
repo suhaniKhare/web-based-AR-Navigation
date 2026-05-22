@@ -72,7 +72,7 @@
     "hasIndoor": true,
     "primaryOptions": [
       { "id": "HOD_OFFICE", "label": "HOD", "type": "route" },
-      { "id": "LABS", "label": "Chemsitry Lab", "type": "route" }
+      { "id": "LABS", "label": "Chemistry Lab", "type": "route" }
     ]
   },
 
@@ -82,5 +82,16 @@
       { "id": "HOD_OFFICE", "label": "Prof. S.K. Jain", "type": "route" },
       { "id": "LABS", "label": "Labs", "type": "route" }
     ]
+  },
+
+  "DIRECTORS_OFFICE":{
+    "hasIndoor": true,
+    "primaryOptions": [
+      { "id": "DIRECTOR_CABIN", "label": "Directors cabin", "type": "route" },
+      { "id": "ACCOUNTS_OFFICE", "label": "Accounts Section", "type": "route" },
+      { "id": "REGISTRAR_OFFICE", "label": "Registrar Office", "type": "route" },
+      { "id": "SCHOLARSHIP_SECTION", "label": "Scholarship Section", "type": "route" }
+    ]
   }
+  
 }
