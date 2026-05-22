@@ -58,7 +58,7 @@
       "steps": [
         { "step": 1, "instruction": "Face the stairs" },
         { "step": 2, "instruction": "Turn right and go straight" },
-        { "step": 3, "instruction": "Lab 101 is on your right" }
+        { "step": 3, "instruction": "Lab 104 is on your right" }
       ]
     }
   },

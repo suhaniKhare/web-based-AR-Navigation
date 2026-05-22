@@ -10,12 +10,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ==========================================
-// MONGODB CONFIGURATION
-// REPLACE THE PLACEHOLDER BELOW WITH YOUR ACTUAL MONGODB ATLAS CONNECTION STRING
-// OR set the MONGODB_URI environment variable on your hosting provider (e.g. Render/Railway).
-// Example: "mongodb+srv://<username>:<password>@cluster0.mongodb.net/myDatabase?retryWrites=true&w=majority"
-// ==========================================
 const MONGODB_URI = process.env.MONGODB_URI ;
 
 let db, statsCollection, logsCollection;
@@ -75,3 +69,5 @@ app.get('/api/scan', async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+module.exports = app;

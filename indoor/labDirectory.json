@@ -15,15 +15,19 @@
       { "id": "LAB_104", "label": "ATC LAB 104" }
     ]
   },
-  "CS":{
+  "CS": {
     "hasIndoor": true,
     "primaryOptions": [
-      { "id": "HOD_OFFICE", "label": "Prof. Urjita Thakar (HOD)", "type": "route" },
+      {
+        "id": "HOD_OFFICE",
+        "label": "Prof. Urjita Thakar (HOD)",
+        "type": "route"
+      },
       { "id": "LABS", "label": "Labs", "type": "route" }
     ]
   },
 
-   "DEPT_APPLIED_PHYSICS": {
+  "DEPT_APPLIED_PHYSICS": {
     "hasIndoor": true,
     "primaryOptions": [
       { "id": "HOD_OFFICE", "label": "Prof. J.T. Andrews", "type": "route" },
@@ -31,28 +35,32 @@
     ]
   },
 
-  "BM":{
+  "BM": {
     "hasIndoor": true,
     "primaryOptions": [
       { "id": "HOD_OFFICE", "label": "Prof. P.P. Bansod", "type": "route" }
     ]
   },
 
-  "Mechanical":{
+  "Mechanical": {
     "hasIndoor": true,
     "primaryOptions": [
       { "id": "HOD_OFFICE", "label": "Prof. B.R. Rawal", "type": "route" }
     ]
   },
 
-  "GOLDEN_JUBILEE_AUDITORIUM":{
+  "GOLDEN_JUBILEE_AUDITORIUM": {
     "hasIndoor": true,
     "primaryOptions": [
-      { "id": "MAIN_BUILDING", "label": "Golden Jubilee Auditorium", "type": "route" }
+      {
+        "id": "MAIN_BUILDING",
+        "label": "Golden Jubilee Auditorium",
+        "type": "route"
+      }
     ]
   },
 
-  "EL":{
+  "EL": {
     "hasIndoor": true,
     "primaryOptions": [
       { "id": "HOD_OFFICE", "label": "Prof. B.R. Rawal", "type": "route" },
@@ -60,7 +68,7 @@
     ]
   },
 
-  "Civil":{
+  "Civil": {
     "hasIndoor": true,
     "primaryOptions": [
       { "id": "HOD_OFFICE", "label": "Prof. H.K. Verma", "type": "route" },
@@ -68,7 +76,7 @@
     ]
   },
 
-  "DEPT_APPLIED_CHEMISTRY":{
+  "DEPT_APPLIED_CHEMISTRY": {
     "hasIndoor": true,
     "primaryOptions": [
       { "id": "HOD_OFFICE", "label": "HOD", "type": "route" },
@@ -76,7 +84,7 @@
     ]
   },
 
-  "EC":{
+  "EC": {
     "hasIndoor": true,
     "primaryOptions": [
       { "id": "HOD_OFFICE", "label": "Prof. S.K. Jain", "type": "route" },
@@ -84,14 +92,21 @@
     ]
   },
 
-  "DIRECTORS_OFFICE":{
+  "DIRECTORS_OFFICE": {
     "hasIndoor": true,
     "primaryOptions": [
       { "id": "DIRECTOR_CABIN", "label": "Directors cabin", "type": "route" },
       { "id": "ACCOUNTS_OFFICE", "label": "Accounts Section", "type": "route" },
-      { "id": "REGISTRAR_OFFICE", "label": "Registrar Office", "type": "route" },
-      { "id": "SCHOLARSHIP_SECTION", "label": "Scholarship Section", "type": "route" }
+      {
+        "id": "REGISTRAR_OFFICE",
+        "label": "Registrar Office",
+        "type": "route"
+      },
+      {
+        "id": "SCHOLARSHIP_SECTION",
+        "label": "Scholarship Section",
+        "type": "route"
+      }
     ]
   }
-  
 }
